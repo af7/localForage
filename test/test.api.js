@@ -263,8 +263,6 @@ DRIVERS.forEach(function(driverName) {
 
         it('should iterate() through only its own keys/values', function(done) {
 
-            var iterationNumberConcat = '';
-
             localStorage.setItem('local', 'forage');
             localforage.setItem('office', 'Initech').then(function() {
                 return localforage.setItem('name', 'Bob');
@@ -272,6 +270,7 @@ DRIVERS.forEach(function(driverName) {
                 // Loop through all key/value pairs; {local: 'forage'} set
                 // manually should not be returned.
                 var numberOfItems = 0;
+                var iterationNumberConcat = '';
                 localforage.iterate(function(value, key, iterationNumber) {
                     expect(key).to.not.be('local');
                     expect(value).to.not.be('forage');
