@@ -279,12 +279,12 @@ DRIVERS.forEach(function(driverName) {
                 }, function(err) {
                     if (!err) {
                         // While there are 3 items in localStorage,
-                        // only two items were set using localForage.
+                        // only 2 items were set using localForage.
                         expect(numberOfItems).to.be(2);
 
-                        // Only one item was set on localForage storage,
-                        // so we should get '1' and not '12'
-                        expect(iterationNumberConcat).to.be('1');
+                        // Only 2 items were set using localForage,
+                        // so we should get '12' and not '123'
+                        expect(iterationNumberConcat).to.be('12');
 
                         done();
                     }
